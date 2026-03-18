@@ -1,0 +1,286 @@
+/* ============ Experience / Training Section — Futuristic ============ */
+.experience-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Vertical timeline line — neon glow */
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-secondary));
+  box-shadow: 0 0 8px var(--accent-glow-strong), 0 0 20px var(--accent-glow);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 72px;
+  margin-bottom: 48px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline dot — neon pulse */
+.timeline-dot {
+  position: absolute;
+  left: 18px;
+  top: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 3px solid var(--accent);
+  z-index: 1;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--accent-glow-strong);
+}
+
+.timeline-item:hover .timeline-dot {
+  background: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow-strong), 0 0 40px var(--accent-glow);
+  transform: scale(1.2);
+}
+
+/* Timeline card — glassmorphic */
+.timeline-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-card:hover {
+  border-color: var(--accent);
+  transform: translateX(8px);
+  box-shadow: var(--shadow-neon);
+}
+
+/* Training card image */
+.timeline-image-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.timeline-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.timeline-card:hover .timeline-image {
+  transform: scale(1.05);
+}
+
+.timeline-card .timeline-badge,
+.timeline-card .timeline-title,
+.timeline-card .timeline-org,
+.timeline-card .timeline-description,
+.timeline-card .cert-view-link {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.timeline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  padding: 4px 12px;
+  background: var(--accent-glow);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  text-shadow: var(--neon-text-shadow);
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.timeline-org {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.timeline-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  padding-bottom: 16px;
+}
+
+/* Certificates subsection — glassmorphic */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.cert-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cert-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-neon);
+}
+
+/* Neon top accent on cert cards */
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cert-card:hover::before {
+  opacity: 1;
+}
+
+/* Certificate image */
+.cert-image-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cert-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent, transparent 3px,
+    rgba(0, 240, 255, 0.01) 3px,
+    rgba(0, 240, 255, 0.01) 6px
+  );
+  pointer-events: none;
+}
+
+.cert-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.cert-card:hover .cert-image {
+  transform: scale(1.05);
+}
+
+.cert-type {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 8px;
+  padding: 16px 24px 0;
+  text-shadow: var(--neon-text-shadow);
+}
+
+.cert-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding: 0 24px;
+}
+
+.cert-provider {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 24px 12px;
+}
+
+.cert-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding: 0 24px 12px;
+  margin: 0;
+}
+
+.cert-view-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 24px 20px;
+  transition: all 0.3s ease;
+}
+
+.cert-view-link:hover {
+  text-shadow: var(--neon-text-shadow);
+  transform: translateX(4px);
+}
+
+.cert-view-link svg {
+  font-size: 1rem;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 768px) {
+  .experience-timeline::before {
+    left: 16px;
+  }
+
+  .timeline-item {
+    padding-left: 52px;
+  }
+
+  .timeline-dot {
+    left: 7px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .timeline-card {
+    padding: 20px;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+}
