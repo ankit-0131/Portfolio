@@ -59,7 +59,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right — Circular Profile Image */}
           <div className="about-image-wrapper animate-on-scroll slide-right">
             <div className="about-image-card">
               <div className="about-image-inner">
