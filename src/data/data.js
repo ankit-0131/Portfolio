@@ -10,7 +10,7 @@ export const personalInfo = {
   phone: "+91 9435763184",
   linkedin: "https://linkedin.com/in/ankit2006",
   github: "https://github.com/ankit-0131",
-  resumeLink: "/images/General CV.pdf",
+  resumeLink: "/public/images/General CV.pdf",
 };
 
 export const skills = [
