@@ -63,7 +63,7 @@ export default function About() {
           <div className="about-image-wrapper animate-on-scroll slide-right">
             <div className="about-image-card">
               <div className="about-image-inner">
-                <img src="/images/Ankitt.jpg" alt="Ankit Kumar Singh" className="about-avatar-img" />
+                <img src="/images/Ankit-formal.jpg" alt="Ankit Kumar Singh" className="about-avatar-img" />
               </div>
             </div>
             <div className="about-image-decoration"></div>
