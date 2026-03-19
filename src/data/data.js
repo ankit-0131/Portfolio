@@ -107,7 +107,7 @@ export const certificates = [
   {
     title: "Privacy and Security in Online Social Media",
     provider: "NPTEL",
-    period: "Jan 2025 – Apr 2025",
+    period: "Apr 2025",
     type: "MOOC",
     image: "/images/NPTEL-COURSE.png",
     description: "This course delves into the critical issues of privacy and security in online social media. It examines the various threats and vulnerabilities that users face, as well as the strategies and techniques available for protecting personal information in the digital realm.",
@@ -116,7 +116,7 @@ export const certificates = [
   {
     title: "Packet Switching Networks and Algorithm",
     provider: "Coursera",
-    period: "Sept 2024 – Nov 2024",
+    period: "Nov 2024",
     type: "MOOC",
     image: "/images/packet.png",
     description: "In this course, I learn the fundamentals of packet switching networks from both external and internal perspectives—understanding how the network provides services to the transport layer, and how it handles routing, addressing, and congestion internally",
@@ -125,7 +125,7 @@ export const certificates = [
   {
     title: "Peer-to-Peer Protocols and Local Area Networks",
     provider: "Coursera",
-    period: "Oct 2024 – Oct 2024",
+    period: "Oct 2024",
     type: "MOOC",
     image: "/images/peer-to-peer.png",
     description: "This course explores the fundamentals of peer-to-peer (P2P) protocols and local area networks (LANs). It covers the principles of P2P systems, where devices can act as both clients and servers, and examines the architecture and operation of local area networks, including Ethernet and Wi-Fi technologies.",
@@ -134,7 +134,7 @@ export const certificates = [
   {
     title: "Fundamentals of Network Communication",
     provider: "Coursera",
-    period: "Sept 2024 – Oct 2024",
+    period: "Oct 2024",
     type: "MOOC",
     image: "/images/fundamentals.png",
     description: "This course introduces the fundamentals of network communication, covering the basic principles of how data is transmitted and received across networks. It explores the essential concepts that enable communication between devices, providing a solid foundation for understanding more complex networking topics.",
@@ -143,7 +143,7 @@ export const certificates = [
   {
     title: "The Bits and Bytes of Computer Networking",
     provider: "Coursera(Google)",
-    period: "Aug 2024 – Sept 2024",
+    period: "Sept 2024",
     type: "Certification",
     image: "/images/Bits and Bytes.png",
     description: "This course introduces the fundamental concepts of computer networking, covering the essential building blocks of how devices communicate with each other. It explores the basic principles of network communication, providing a solid foundation for understanding how data is transmitted and received across networks.",
@@ -178,7 +178,7 @@ export const education = [
     current: true,
   },
   {
-    institution: "Kendriya Vidyalaya No.1 Air Force Station Adampur",
+    institution: "Kendriya Vidyalaya No.1 Air Force Station Adampur Punjab",
     degree: "Intermediate (12th)",
     field: "",
     grade: "Percentage: 68%",
@@ -186,7 +186,7 @@ export const education = [
     current: false,
   },
   {
-    institution: "Kendriya Vidyalaya Airforce Station Avadi",
+    institution: "Kendriya Vidyalaya Airforce Station Avadi Chennai",
     degree: "Matriculation (10th)",
     field: "",
     grade: "Percentage: 85%",
