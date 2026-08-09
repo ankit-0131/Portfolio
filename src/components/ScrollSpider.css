@@ -4,7 +4,7 @@
    ========================================================================== */
 
 .scroll-spider-wrapper {
-  position: fixed;
+  position: absolute;
   right: 35px;
   top: 0;
   bottom: 0;
@@ -33,7 +33,6 @@
   );
   opacity: 0.45;
   transform: translateX(-50%);
-  transition: height 0.15s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .scroll-spider-container {
@@ -43,7 +42,6 @@
   width: 34px;
   height: 34px;
   margin-top: -6px; /* Anchor perfectly to the spinneret (rear end) at the top of the spider */
-  transition: top 0.15s cubic-bezier(0.25, 1, 0.5, 1);
   transform-origin: center center;
 }
 

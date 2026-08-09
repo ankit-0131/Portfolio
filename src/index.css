@@ -81,6 +81,7 @@ html {
 
 /* ============ Fonts ============ */
 body {
+  position: relative;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);

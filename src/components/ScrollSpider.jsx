@@ -26,9 +26,8 @@ export default function ScrollSpider({ scrollProgress }) {
     };
   }, []);
 
-  // Top starts at 80px (to sit below the header navbar) and travels down to 100px from the bottom
-  const scrollRatio = scrollProgress / 100;
-  const spiderTop = `calc(80px + (100vh - 180px) * ${scrollRatio})`;
+  // Position moves from 0% (top of page) to 100% (bottom of page), subtracting the spider's height (34px) proportionally so it doesn't overflow the bottom.
+  const spiderTop = `calc(${scrollProgress}% - ${scrollProgress * 0.34}px)`;
 
   return (
     <div className="scroll-spider-wrapper" aria-hidden="true">
