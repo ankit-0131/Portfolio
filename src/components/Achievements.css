@@ -2,7 +2,8 @@
 .achievements-ledger-list {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--border);
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .achievements-ledger-header {

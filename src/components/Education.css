@@ -2,7 +2,8 @@
 .education-ledger {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--border);
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .edu-ledger-header-row {

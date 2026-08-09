@@ -2,7 +2,8 @@
 .training-ledger {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--border);
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .ledger-header-row {
@@ -18,9 +19,19 @@
 .training-ledger-row {
   display: grid;
   grid-template-columns: 25% 75%;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 24px;
+  background: rgba(24, 24, 27, 0.2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   align-items: start;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.training-ledger-row:hover {
+  background: rgba(24, 24, 27, 0.45);
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
 .training-date {
@@ -76,7 +87,8 @@
 .certs-ledger {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--border);
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .certs-ledger-header {
