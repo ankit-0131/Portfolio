@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { FiSun, FiMoon } from 'react-icons/fi';
 import useScrollAnimation from './hooks/useScrollAnimation';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -68,8 +69,10 @@ export default function App() {
     <>
       {isLoading && <Loader onFinished={() => setIsLoading(false)} />}
       <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} aria-hidden="true"></div>
-      <ScrollSpider scrollProgress={scrollProgress} />
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <div className="scroll-spider-outer-container" aria-hidden="true">
+        <ScrollSpider scrollProgress={scrollProgress} />
+      </div>
+      <Navbar />
       <main>
         <Hero />
         <About />
@@ -81,6 +84,13 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <button
+        className="floating-theme-toggle"
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+      >
+        {theme === 'dark' ? <FiSun /> : <FiMoon />}
+      </button>
     </>
   );
 }

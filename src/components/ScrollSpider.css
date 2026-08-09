@@ -3,23 +3,32 @@
    Spun web thread, smooth crawl animations, interactive float wiggles
    ========================================================================== */
 
-.scroll-spider-wrapper {
+.scroll-spider-outer-container {
   position: absolute;
-  right: 35px;
   top: 0;
   bottom: 0;
-  width: 40px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  pointer-events: none;
   z-index: 999; /* Float above sections but below overlays like loader/modals */
-  pointer-events: none; /* Do not block clicks on elements behind */
-  --spider-size: 34px;
 }
 
-/* Responsive adjustments for mobile and tablets */
-@media (max-width: 850px) {
+.scroll-spider-wrapper {
+  position: absolute;
+  right: 0.75cm; /* Exactly 0.75cm from the right edge of the screen */
+  top: 0;
+  bottom: 0;
+  width: 32px; /* Centered thread will sit at exactly 16px from the wrapper edge */
+  pointer-events: none;
+  --spider-size: 20px; /* Default desktop/tablet size (radius 10px) */
+}
+
+@media (max-width: 768px) {
   .scroll-spider-wrapper {
-    right: 15px; /* Bring closer to the edge on mobile */
-    width: 25px;
-    --spider-size: 22px;
+    right: 12px; /* Positioned near the edge on mobile screens */
+    width: 20px; /* Centered thread will sit at exactly 10px from the wrapper edge */
+    --spider-size: 14px; /* Mobile size (radius 7px) */
   }
 }
 

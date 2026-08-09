@@ -243,14 +243,8 @@
 
 /* ============ Responsive ============ */
 @media (max-width: 1024px) {
-  .project-row-editorial {
-    gap: 40px;
-  }
-}
-
-@media (max-width: 768px) {
   .projects-editorial-list {
-    gap: 80px;
+    gap: 60px;
   }
 
   .project-row-editorial {
@@ -260,11 +254,11 @@
   }
 
   .project-pane-visual {
-    order: -1; /* Image always on top on mobile */
+    order: -1; /* Image always on top on mobile/tablet */
   }
 
   .project-title-editorial {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .p2-workstation-frame {

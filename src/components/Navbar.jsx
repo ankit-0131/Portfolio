@@ -17,7 +17,7 @@ const navLinks = [
   { label: 'Contact', href: '#contact', index: '08' },
 ];
 
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
@@ -144,15 +144,6 @@ export default function Navbar({ theme, toggleTheme }) {
           </ul>
 
           <div className="navbar-controls">
-            {/* Theme Toggle */}
-            <button
-              className="theme-toggle"
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <FiSun /> : <FiMoon />}
-            </button>
-
             {/* Mobile Hamburger */}
             <button
               ref={triggerRef}

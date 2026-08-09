@@ -3,15 +3,45 @@
 /* Top Profile Layout */
 .about-grid-editorial {
   display: grid;
-  grid-template-columns: 22% 45% 33%;
+  grid-template-columns: 58% 42%;
   gap: 50px;
-  align-items: start;
+  align-items: start; /* Align elements to the top so picture is beside text */
 }
 
-/* Col 1: Metadata Row Ledger */
+/* Right Pane: holds Portrait & Metadata stacked vertically */
+.about-col-right-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-end;
+  width: 100%;
+  padding-right: 0.75cm; /* Push content away from the spider corridor */
+  box-sizing: border-box;
+}
+
+.about-portrait-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Left Pane: Biography + Metadata stacked vertically */
+.about-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+/* Metadata Row Ledger */
 .about-col-meta {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 280px;
+  align-items: flex-start; /* Shift location part back to the left */
+  text-align: left;
 }
 
 .meta-row {
@@ -19,6 +49,8 @@
   flex-direction: column;
   padding: 16px 0;
   border-bottom: 1px solid var(--border);
+  align-items: flex-start; /* Left-align content within row */
+  width: 100%;
 }
 
 .meta-row:first-child {
@@ -71,12 +103,12 @@
   color: var(--accent);
 }
 
-/* Col 3: Rectangular Portrait */
-.about-col-portrait {
+/* Portrait wrapper positioning */
+.about-portrait-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
+  max-width: 280px;
 }
 
 .portrait-container {
@@ -208,17 +240,14 @@
   line-height: 1.6;
 }
 
-/* ============ Responsive ============ */
 @media (max-width: 1024px) {
   .about-grid-editorial {
-    grid-template-columns: 28% 72%;
-    gap: 40px;
+    grid-template-columns: 55% 45%;
+    gap: 32px;
   }
 
-  .about-col-portrait {
-    grid-column: span 2;
-    max-width: 320px;
-    margin-top: 20px;
+  .about-col-right-pane {
+    gap: 20px;
   }
 
   .about-capabilities-ledger {
@@ -229,15 +258,32 @@
 
 @media (max-width: 768px) {
   .about-grid-editorial {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 32px;
   }
 
-  .about-col-portrait {
-    grid-column: span 1;
-    max-width: 100%;
-    margin-top: 0;
-    order: -1; /* Portrait above info on mobile */
+  .about-col-left {
+    order: 2; /* Bio text + metadata below picture */
+    gap: 32px;
+  }
+
+  .about-col-right-pane {
+    order: 1; /* Picture at the top */
+    flex-direction: column; /* Stacked on mobile! */
+    align-items: center; /* Center them on mobile */
+    gap: 24px;
+    padding-right: 0; /* Reset desktop padding corridor */
+  }
+
+  .about-col-meta {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .meta-row {
+    align-items: center;
   }
 
   .capability-row-item {

@@ -25,51 +25,55 @@ export default function About() {
           </p>
         </div>
 
-        {/* Profile Row: 3-Column Layout */}
+        {/* Profile Row: 2-Column Responsive Layout */}
         <div className="about-grid-editorial">
-          {/* Column 1: Monospaced Metadata */}
-          <div className="about-col-meta animate-on-scroll">
-            <div className="meta-row">
-              <span className="meta-label mono">LOC</span>
-              <span className="meta-value">Punjab, India</span>
+          {/* Left Column: Biography + Metadata ledger below it */}
+          <div className="about-col-left animate-on-scroll">
+            <div className="about-col-narrative">
+              <h3 className="about-philosophy">
+                BUILDING SCALABLE WEB SYSTEMS FROM SCRATCH WITH HIGH STRUCTURAL INTEGRITY.
+              </h3>
+              <p className="about-paragraph-bio">
+                <span className="drop-cap">{firstLetter}</span>
+                {restOfBio}
+              </p>
             </div>
-            <div className="meta-row">
-              <span className="meta-label mono">DEGREE</span>
-              <span className="meta-value">B.Tech CS Student</span>
-            </div>
-            <div className="meta-row">
-              <span className="meta-label mono">SPECIALTY</span>
-              <span className="meta-value">Full-Stack Web</span>
-            </div>
-            <div className="meta-row">
-              <span className="meta-label mono">WORKSTATION</span>
-              <span className="meta-value mono" style={{ fontSize: '0.8rem', color: 'var(--accent-secondary)' }}>
-                NODE.JS / React / MongoDB
-              </span>
+
+            {/* Monospaced Metadata Ledger */}
+            <div className="about-col-meta">
+              <div className="meta-row">
+                <span className="meta-label mono">LOC</span>
+                <span className="meta-value">Punjab, India</span>
+              </div>
+              <div className="meta-row">
+                <span className="meta-label mono">DEGREE</span>
+                <span className="meta-value">B.Tech CS Student</span>
+              </div>
+              <div className="meta-row">
+                <span className="meta-label mono">SPECIALTY</span>
+                <span className="meta-value">Full-Stack Web</span>
+              </div>
+              <div className="meta-row">
+                <span className="meta-label mono">WORKSTATION</span>
+                <span className="meta-value mono" style={{ fontSize: '0.8rem', color: 'var(--accent-secondary)' }}>
+                  NODE.JS / React / MongoDB
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Column 2: Biography & Drop-cap Narrative */}
-          <div className="about-col-narrative animate-on-scroll stagger-1">
-            <h3 className="about-philosophy">
-              BUILDING SCALABLE WEB SYSTEMS FROM SCRATCH WITH HIGH STRUCTURAL INTEGRITY.
-            </h3>
-            <p className="about-paragraph-bio">
-              <span className="drop-cap">{firstLetter}</span>
-              {restOfBio}
-            </p>
-          </div>
-
-          {/* Column 3: Rectangular Black-and-white 4:5 Portrait */}
-          <div className="about-col-portrait animate-on-scroll stagger-2">
-            <div className="portrait-container">
-              <img
-                src="/images/Ankit-formal.jpg"
-                alt="Ankit Kumar Singh formal portrait"
-                className="portrait-img"
-              />
+          {/* Right Column: Portrait Picture */}
+          <div className="about-col-right-pane animate-on-scroll stagger-1">
+            <div className="about-portrait-wrapper">
+              <div className="portrait-container">
+                <img
+                  src="/images/Ankit-formal.jpg"
+                  alt="Ankit Kumar Singh formal portrait"
+                  className="portrait-img"
+                />
+              </div>
+              <span className="portrait-caption mono">TECHNICAL WORKSTATION RECORD - 2026</span>
             </div>
-            <span className="portrait-caption mono">TECHNICAL WORKSTATION RECORD - 2026</span>
           </div>
         </div>
 
