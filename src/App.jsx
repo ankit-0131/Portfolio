@@ -11,6 +11,7 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
+import ScrollSpider from './components/ScrollSpider';
 
 /**
  * App — Root component
@@ -67,6 +68,7 @@ export default function App() {
     <>
       {isLoading && <Loader onFinished={() => setIsLoading(false)} />}
       <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} aria-hidden="true"></div>
+      <ScrollSpider scrollProgress={scrollProgress} />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />

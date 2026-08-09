@@ -1,0 +1,127 @@
+/* ==========================================================================
+   SCROLLSPIDER.CSS — Floating scroll-linked spider on right margin
+   Spun web thread, smooth crawl animations, interactive float wiggles
+   ========================================================================== */
+
+.scroll-spider-wrapper {
+  position: fixed;
+  right: 35px;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  z-index: 999; /* Float above sections but below overlays like loader/modals */
+  pointer-events: none; /* Do not block clicks on elements behind */
+}
+
+/* Hide on mobile and small tablets to keep layout clean and readable */
+@media (max-width: 850px) {
+  .scroll-spider-wrapper {
+    display: none;
+  }
+}
+
+.scroll-web-thread {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1.2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(225, 29, 46, 0.05) 0%,
+    var(--accent) 70%,
+    var(--accent) 100%
+  );
+  opacity: 0.45;
+  transform: translateX(-50%);
+  transition: height 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.scroll-spider-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg); /* Rotate 180 degrees to make it hang upside down */
+  width: 34px;
+  height: 34px;
+  margin-top: -6px; /* Anchor perfectly to the spinneret (rear end) at the top of the spider */
+  transition: top 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: center center;
+}
+
+.scroll-spider-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-spider-body-upper,
+.scroll-spider-body-lower {
+  fill: var(--accent);
+  transition: fill 0.3s ease;
+}
+
+.scroll-spider-leg {
+  stroke: var(--accent);
+  transition: stroke 0.3s ease;
+}
+
+/* Legs groups transform origin */
+.legs-left {
+  transform-origin: 50px 50px;
+}
+
+.legs-right {
+  transform-origin: 50px 50px;
+}
+
+/* Crawling animation while scrolling */
+.scroll-spider-container.is-crawling {
+  animation: sway 0.4s ease-in-out infinite alternate;
+}
+
+.scroll-spider-container.is-crawling .legs-left {
+  animation: crawl-left 0.25s ease-in-out infinite alternate;
+}
+
+.scroll-spider-container.is-crawling .legs-right {
+  animation: crawl-right 0.25s ease-in-out infinite alternate;
+}
+
+/* Resting micro-animation (subtle breathing/scale pulse, no glow) */
+.scroll-spider-container:not(.is-crawling) {
+  animation: float-pulse 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes sway {
+  0% {
+    transform: translateX(-50%) rotate(177deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(183deg);
+  }
+}
+
+@keyframes crawl-left {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  100% {
+    transform: rotate(-6deg) translateY(-2px) translateX(1px);
+  }
+}
+
+@keyframes crawl-right {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  100% {
+    transform: rotate(6deg) translateY(-2px) translateX(-1px);
+  }
+}
+
+@keyframes float-pulse {
+  0% {
+    transform: translateX(-50%) rotate(180deg) scale(0.96);
+  }
+  100% {
+    transform: translateX(-50%) rotate(180deg) scale(1.04);
+  }
+}
