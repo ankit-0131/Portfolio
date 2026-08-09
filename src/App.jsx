@@ -10,18 +10,33 @@ import Achievements from './components/Achievements';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Loader from './components/Loader';
 
 /**
  * App — Root component
  * Manages theme state (localStorage-persisted) and composes all sections
  */
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  
   // Initialize theme from localStorage or default to 'dark'
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('portfolio-theme') || 'dark';
   });
   
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Prevent background scrolling while loading screen is active
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isLoading]);
 
   // Apply theme to <html> element and persist
   useEffect(() => {
@@ -50,6 +65,7 @@ export default function App() {
 
   return (
     <>
+      {isLoading && <Loader onFinished={() => setIsLoading(false)} />}
       <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} aria-hidden="true"></div>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>

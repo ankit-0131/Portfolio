@@ -1,0 +1,224 @@
+/* ==========================================================================
+   LOADER.CSS — Spider-Man HUD Loading Screen Styling
+   Cinematic tech schematics, glowing circles, terminal feedback logs
+   ========================================================================== */
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #070709;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+  color: #F4F4F5;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle grid overlay to represent workstation schematic design */
+.loader-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(225, 29, 46, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(225, 29, 46, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  pointer-events: none;
+}
+
+/* CRT Scanline / Noise effect */
+.loader-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(225, 29, 46, 0.03) 50%,
+    rgba(225, 29, 46, 0.03)
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.loader-overlay.fade-out {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+/* Center HUD Panel */
+.hud-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* SVG Spider Logo & Ticks styling */
+.hud-spider-svg {
+  width: 160px;
+  height: 160px;
+  filter: drop-shadow(0 0 15px rgba(225, 29, 46, 0.4));
+  margin-bottom: 24px;
+}
+
+.hud-circle-outer {
+  fill: none;
+  stroke: rgba(225, 29, 46, 0.25);
+  stroke-width: 1.5;
+  stroke-dasharray: 8 6;
+  transform-origin: 50px 50px;
+  animation: spin-clockwise 15s linear infinite;
+}
+
+.hud-circle-inner {
+  fill: none;
+  stroke: rgba(225, 29, 46, 0.55);
+  stroke-width: 1.5;
+  stroke-dasharray: 30 10;
+  transform-origin: 50px 50px;
+  animation: spin-counter-clockwise 8s linear infinite;
+}
+
+.hud-crosshair {
+  stroke: rgba(225, 29, 46, 0.35);
+  stroke-width: 1;
+}
+
+.spider-body-upper,
+.spider-body-lower,
+.spider-leg {
+  transform-origin: 50px 50px;
+  animation: emblem-glow 2s ease-in-out infinite alternate;
+}
+
+/* Progress Section */
+.loader-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+}
+
+.progress-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #F4F4F5;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 8px rgba(244, 244, 245, 0.2);
+}
+
+.progress-number::after {
+  content: '%';
+  font-size: 1.1rem;
+  color: #E11D2E;
+  margin-left: 2px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(225, 29, 46, 0.2);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #E11D2E;
+  box-shadow: 0 0 10px #E11D2E;
+  transition: width 0.05s linear;
+}
+
+/* Technical Terminal Display */
+.loader-status-terminal {
+  margin-top: 28px;
+  width: 320px;
+  height: 80px;
+  background: rgba(18, 18, 21, 0.7);
+  border: 1px solid rgba(225, 29, 46, 0.15);
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 0.75rem;
+  color: rgba(244, 244, 245, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6);
+  text-align: left;
+}
+
+.terminal-line {
+  line-height: 1.4;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.terminal-line.active {
+  color: #E11D2E;
+  text-shadow: 0 0 5px rgba(225, 29, 46, 0.5);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  background-color: #E11D2E;
+  animation: blink 0.8s step-end infinite;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* Animations */
+@keyframes spin-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-counter-clockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes emblem-glow {
+  0% {
+    fill: #BE1C2A;
+    stroke: #BE1C2A;
+    opacity: 0.75;
+  }
+  100% {
+    fill: #ff3b4e;
+    stroke: #ff3b4e;
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(225, 29, 46, 0.7));
+  }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

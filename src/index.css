@@ -60,6 +60,25 @@ html {
   --surface-l1: rgba(244, 244, 245, 0.5);
 }
 
+/* ============ Mobile Dull Red Overrides ============ */
+@media (max-width: 768px) {
+  [data-theme="dark"] {
+    --accent: #B22230;
+    --accent-hover: #D3404E;
+    --accent-glow: rgba(178, 34, 48, 0.08);
+    --border-accent: rgba(178, 34, 48, 0.15);
+    --glass-border: rgba(178, 34, 48, 0.15);
+  }
+
+  [data-theme="light"] {
+    --accent: #AC2222;
+    --accent-hover: #C53030;
+    --accent-glow: rgba(172, 34, 34, 0.08);
+    --border-accent: rgba(172, 34, 34, 0.15);
+    --glass-border: rgba(172, 34, 34, 0.15);
+  }
+}
+
 /* ============ Fonts ============ */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
