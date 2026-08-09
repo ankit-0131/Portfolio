@@ -8,7 +8,7 @@ export const personalInfo = {
   bio: `Passionate Computer Science student at Lovely Professional University with a strong foundation in full-stack web development and data structures. I love building responsive, user-friendly web applications and am always eager to learn new technologies. With experience in Java, JavaScript, PHP, and modern frameworks like React and Node.js, I bring creative problem-solving skills to every project.`,
   email: "ankit010106@gmail.com",
   phone: "+91 9435763184",
-  linkedin: "https://linkedin.com/in/ankit2006",
+  linkedin: "https://linkedin.com/in/singh-kumar-ankit",
   github: "https://github.com/ankit-0131",
   resumeLink: "/images/General-CV.pdf",
 };
@@ -60,19 +60,19 @@ export const skills = [
 
 export const projects = [
   {
-    title: "Rent-A-Ride",
+    title: "Party Hall Booking System",
     description:
-      "Designed and developed a responsive frontend for a Car Rental platform tailored for college students using HTML, CSS, and JavaScript. Implemented user authentication interfaces with light and dark theme toggle, structured vehicle listing components, and enhanced UX with smooth CSS transitions and scroll-reveal animations.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    image: "/images/project-rent-a-ride.png",
-    altText: "Rent-A-Ride dashboard interface highlighting vehicle listings and theme toggling",
-    github: "https://github.com/ankit-0131/Rent-A-Ride",
-    period: "Oct 2025 – Nov 2025",
+      "Developed a full-stack Party Hall Booking System using React.js, Node.js, Express.js, MongoDB, and Docker. Built RESTful APIs for authentication, venue management, and bookings, with a responsive UI for seamless venue discovery and reservations.",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Docker", "HTML", "CSS"],
+    image: "/images/project-party-hall.png",
+    altText: "Party Hall Booking System dashboard showing event halls and interactive booking calendar",
+    github: "https://github.com/ankit-0131/Party-Hall-Booking-System",
+    period: "Feb 2026 – Mar 2026",
     highlights: [
-      "Responsive car rental platform for college students",
-      "Light & dark theme toggle",
-      "Card-based vehicle listing with clear pricing",
-      "Smooth CSS transitions & scroll-reveal animations",
+      "Full-stack booking system with React, Node.js, Express & MongoDB",
+      "RESTful APIs for venue management and reservation workflows",
+      "Docker containerization for easy deployment",
+      "Responsive UI with theme toggles and smooth animations",
     ],
   },
   {
