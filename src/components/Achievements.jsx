@@ -1,49 +1,49 @@
-import { FiAward, FiCalendar } from 'react-icons/fi';
-import { SiMongodb } from 'react-icons/si';
-import { FaHackerrank } from 'react-icons/fa';
 import { achievements } from '../data/data';
 import './Achievements.css';
 
 /**
- * Achievements — Separate section displaying badges & accomplishments
- * Ordered from latest to oldest
+ * Achievements — Compact CV verification ledger list.
+ * Removes badge box cards, styling details as tabular ledger lines.
  */
-
-// Map icon keys to components
-const iconMap = {
-  hackerrank: <FaHackerrank />,
-  mongodb: <SiMongodb />,
-};
-
 export default function Achievements() {
   return (
     <section className="section" id="achievements">
       <div className="container">
         <div className="section-header animate-on-scroll">
-          <h2 className="section-title">Achievements</h2>
+          <div className="section-title-wrap">
+            <span className="section-number mono">06</span>
+            <h2 className="section-title">Achievements</h2>
+          </div>
           <p className="section-subtitle">
-            Badges and recognitions earned along the way
+            Platform badges, programming credentials, and skill certifications.
           </p>
         </div>
 
-        <div className="achievements-grid">
-          {achievements.map((item, i) => (
-            <div
-              className={`achievement-card animate-on-scroll stagger-${i + 1}`}
-              key={item.title}
-            >
-              <div className="achievement-icon">
-                {iconMap[item.icon] || <FiAward />}
+        <div className="achievements-ledger-list animate-on-scroll">
+          <div className="achievements-ledger-header mono">
+            <span>CREDENTIAL / BADGE</span>
+            <span>PLATFORM</span>
+            <span className="text-right">DATE</span>
+            <span className="text-right">VERIFICATION</span>
+          </div>
+
+          {achievements.map((item) => (
+            <div className="achievements-ledger-row" key={item.title}>
+              {/* Title & Badge */}
+              <div className="ach-col-title">
+                <h3 className="ach-title-text">{item.title}</h3>
+                <span className="ach-badge-label mono">{item.badge}</span>
               </div>
-              <div className="achievement-content">
-                <span className="achievement-date">
-                  <FiCalendar /> {item.date}
-                </span>
-                <h3 className="achievement-title">{item.title}</h3>
-                <p className="achievement-platform">{item.platform}</p>
-                <div className="achievement-badge">
-                  <FiAward /> {item.badge}
-                </div>
+              
+              {/* Platform */}
+              <div className="ach-col-platform mono">{item.platform}</div>
+              
+              {/* Date */}
+              <div className="ach-col-date mono text-right">{item.date}</div>
+              
+              {/* Verification Fallback */}
+              <div className="ach-col-verify mono text-right text-muted">
+                SECURE - NO LINK
               </div>
             </div>
           ))}

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import useScrollAnimation from './hooks/useScrollAnimation';
 import Navbar from './components/Navbar';
-import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -37,7 +36,6 @@ export default function App() {
 
   return (
     <>
-      <CustomCursor />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />

@@ -1,56 +1,63 @@
-import { FiDownload, FiMail } from 'react-icons/fi';
+import { FiArrowRight, FiDownload } from 'react-icons/fi';
 import { personalInfo } from '../data/data';
 import './Hero.css';
 
 /**
- * Hero — Full-viewport landing section with floating shapes
- * and scroll indicator. No dynamic typing text.
+ * Hero — Cinematic Split Entrance.
+ * Left: Typographic display statement.
+ * Right: Level 2 Glass technical console displaying role status and actions.
  */
 export default function Hero() {
   return (
-    <section className="hero" id="hero">
-      {/* Star layers for dark theme */}
-      <div className="hero-stars"></div>
-      <div className="hero-stars-2"></div>
-      <div className="hero-stars-3"></div>
-
-      {/* Floating shapes */}
-      <div className="hero-shapes">
-        <div className="hero-shape"></div>
-        <div className="hero-shape"></div>
-        <div className="hero-shape"></div>
-        <div className="hero-shape"></div>
-      </div>
-
-      <div className="hero-content">
-        <p className="hero-greeting">👋 Hello, I'm</p>
-        <h1 className="hero-name">
-          <span className="highlight">{personalInfo.name}</span>
-        </h1>
-        <p className="hero-tagline">{personalInfo.tagline}</p>
-        <p className="hero-description">
-          Passionate about crafting beautiful, performant web applications.
-          Currently pursuing B.Tech in Computer Science at Lovely Professional University.
-        </p>
-        <div className="hero-buttons">
-          <a href="#contact" className="btn btn-primary">
-            <FiMail /> Contact Me
-          </a>
-          <a
-            href={personalInfo.resumeLink}
-            className="btn btn-secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FiDownload /> Download CV
-          </a>
+    <section className="hero-editorial" id="hero">
+      <div className="hero-grid">
+        {/* Left: Oversized Display Statement */}
+        <div className="hero-display-pane animate-on-scroll">
+          <div className="divider-tick"></div>
+          <h1 className="hero-statement">
+            BUILDING DIGITAL PRODUCTS THAT FEEL AS GOOD AS THEY WORK.
+          </h1>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <div className="hero-scroll-indicator">
-        <div className="scroll-mouse">
-          <div className="scroll-dot"></div>
+        {/* Right: Technical Information Console (Level 2 Glass) */}
+        <div className="hero-info-pane technical-glass animate-on-scroll stagger-1">
+          <div className="hero-info-section">
+            <span className="info-meta mono">01 POSITION</span>
+            <h2 className="info-val">{personalInfo.name}</h2>
+            <p className="info-text">{personalInfo.tagline}</p>
+          </div>
+
+          <div className="hero-info-section">
+            <span className="info-meta mono">02 CONTEXT</span>
+            <p className="info-text">
+              Pursuing B.Tech Computer Science at Lovely Professional University.
+            </p>
+            <div className="status-indicator" style={{ marginTop: '14px', alignSelf: 'flex-start' }}>
+              <span className="status-dot"></span>
+              <span className="status-label mono">AVAILABLE / ACTIVE COLLABORATIONS</span>
+            </div>
+          </div>
+
+          <div className="hero-info-section hero-actions-list">
+            <span className="info-meta mono">03 DIRECT ACTIONS</span>
+            
+            <a href="#projects" className="link-editorial">
+              View Showcase <FiArrowRight style={{ color: 'var(--accent)' }} />
+            </a>
+
+            <a href="#contact" className="link-editorial">
+              Let's Build <FiArrowRight style={{ color: 'var(--accent)' }} />
+            </a>
+
+            <a
+              href={personalInfo.resumeLink}
+              className="link-editorial"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download CV <FiDownload style={{ color: 'var(--accent)' }} />
+            </a>
+          </div>
         </div>
       </div>
     </section>

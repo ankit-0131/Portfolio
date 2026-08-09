@@ -48,7 +48,7 @@ export const skills = [
     ],
   },
   {
-    category: "Soft Skills",
+    category: "Core Competencies",
     items: [
       { name: "Problem-Solving", level: 90 },
       { name: "Time Management", level: 85 },
@@ -64,7 +64,8 @@ export const projects = [
     description:
       "Designed and developed a responsive frontend for a Car Rental platform tailored for college students using HTML, CSS, and JavaScript. Implemented user authentication interfaces with light and dark theme toggle, structured vehicle listing components, and enhanced UX with smooth CSS transitions and scroll-reveal animations.",
     tech: ["HTML", "CSS", "JavaScript"],
-    image: "/images/",
+    image: "/images/project-rent-a-ride.png",
+    altText: "Rent-A-Ride dashboard interface highlighting vehicle listings and theme toggling",
     github: "https://github.com/ankit-0131/Rent-A-Ride",
     period: "Oct 2025 – Nov 2025",
     highlights: [
@@ -79,7 +80,8 @@ export const projects = [
     description:
       "Engineered a full-stack Land & Property Management System using PHP and MySQL to manage and track land records efficiently. Developed optimized CRUD operations, designed a normalized relational database schema, and implemented secure backend architecture with session-based authentication and server-side validation.",
     tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    image: "/images/managment.png",
+    image: "/images/project-land-tax.png",
+    altText: "Land Tax system database management dashboard showing interactive data grids",
     github: "https://github.com/ankit-0131/Property-and-Tax-Managment-System",
     period: "Feb 2025 – Apr 2025",
     highlights: [

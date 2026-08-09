@@ -1,46 +1,54 @@
-import { FiCalendar, FiBookOpen, FiExternalLink } from 'react-icons/fi';
+import { FiArrowUpRight } from 'react-icons/fi';
 import { training, certificates } from '../data/data';
 import './Experience.css';
 
 /**
- * Experience — Timeline for training, plus certificate cards
+ * Experience & Certificates — Typographic CV Ledgers.
+ * Training is rendered as a chronological monospace/Inter record.
+ * Certificates are rendered as a verification table list.
  */
 export default function Experience() {
   return (
     <section className="section" id="experience">
       <div className="container">
+        {/* Training Timeline */}
         <div className="section-header animate-on-scroll">
-          <h2 className="section-title">Experience & Training</h2>
+          <div className="section-title-wrap">
+            <span className="section-number mono">04</span>
+            <h2 className="section-title">Training & Experience</h2>
+          </div>
           <p className="section-subtitle">
-            My learning journey and certifications
+            Structured coursework and developer training programs I have completed.
           </p>
         </div>
 
-        {/* Training Timeline */}
-        <div className="experience-timeline">
-          {training.map((item, i) => (
-            <div className={`timeline-item animate-on-scroll stagger-${i + 1}`} key={item.title}>
-              <div className="timeline-dot"></div>
-              <div className="timeline-card">
-                {item.image && (
-                  <div className="timeline-image-wrapper">
-                    <img src={item.image} alt={item.title} className="timeline-image" />
-                  </div>
-                )}
-                <span className="timeline-badge">
-                  <FiCalendar /> {item.period}
-                </span>
-                <h3 className="timeline-title">{item.title}</h3>
-                <p className="timeline-org">{item.organization}</p>
-                <p className="timeline-description">{item.description}</p>
+        <div className="training-ledger animate-on-scroll">
+          <div className="ledger-header-row mono">
+            <span>TIMELINE</span>
+            <span>ROLE / ORGANIZATION</span>
+          </div>
+
+          {training.map((item) => (
+            <div className="training-ledger-row" key={item.title}>
+              {/* Date */}
+              <div className="training-date mono">{item.period}</div>
+              
+              {/* Context & Contribution */}
+              <div className="training-content">
+                <h3 className="training-title-text">{item.title}</h3>
+                <span className="training-org-text mono">{item.organization}</span>
+                <p className="training-desc-text">{item.description}</p>
+                <div className="training-tech-stack mono">
+                  <span>TAGS </span> C++ / Data Structures / Algorithms
+                </div>
                 {item.link && (
                   <a
                     href={item.link}
-                    className="cert-view-link"
+                    className="link-editorial training-link"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FiExternalLink /> View Certificate
+                    Verify Certification <FiArrowUpRight />
                   </a>
                 )}
               </div>
@@ -48,39 +56,54 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* Certificates */}
-        <div id="certificates" className="section-header animate-on-scroll" style={{ marginTop: '60px' }}>
-          <h2 className="section-title" style={{ fontSize: '1.8rem' }}>Certificates</h2>
+        {/* Certificates List */}
+        <div id="certificates" className="section-header animate-on-scroll" style={{ marginTop: '100px' }}>
+          <div className="section-title-wrap">
+            <span className="section-number mono">05</span>
+            <h2 className="section-title">Certifications</h2>
+          </div>
+          <p className="section-subtitle">
+            Academic certifications and technical credentials.
+          </p>
         </div>
-        <div className="cert-grid">
-          {certificates.map((cert, i) => (
-            <div className={`cert-card animate-on-scroll stagger-${i + 1}`} key={cert.title}>
-              {cert.image && (
-                <div className="cert-image-wrapper">
-                  <img src={cert.image} alt={cert.title} className="cert-image" />
-                </div>
-              )}
-              <div className="cert-type">
-                <FiBookOpen style={{ marginRight: '4px', verticalAlign: 'middle' }} />
-                {cert.type}
+
+        <div className="certs-ledger animate-on-scroll">
+          <div className="certs-ledger-header mono">
+            <span>CREDENTIAL</span>
+            <span>ISSUER</span>
+            <span className="text-right">DATE</span>
+            <span className="text-right">ACTION</span>
+          </div>
+
+          {certificates.map((cert) => (
+            <div className="certs-ledger-row" key={cert.title}>
+              {/* Credential Name */}
+              <div className="cert-col-title">
+                <h4 className="cert-title-text">{cert.title}</h4>
+                <span className="cert-type-text mono">{cert.type}</span>
               </div>
-              <h4 className="cert-title">{cert.title}</h4>
-              {cert.description && (
-                <p className="cert-description">{cert.description}</p>
-              )}
-              <p className="cert-provider">
-                {cert.provider} • {cert.period}
-              </p>
-              {cert.link && (
-                <a
-                  href={cert.link}
-                  className="cert-view-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FiExternalLink /> View Certificate
-                </a>
-              )}
+              
+              {/* Issuer */}
+              <div className="cert-col-issuer mono">{cert.provider}</div>
+              
+              {/* Date */}
+              <div className="cert-col-date mono text-right">{cert.period}</div>
+              
+              {/* Link */}
+              <div className="cert-col-action text-right">
+                {cert.link ? (
+                  <a
+                    href={cert.link}
+                    className="cert-verify-anchor mono"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    VERIFY ↗
+                  </a>
+                ) : (
+                  <span className="mono text-muted">—</span>
+                )}
+              </div>
             </div>
           ))}
         </div>

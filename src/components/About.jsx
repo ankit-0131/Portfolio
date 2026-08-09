@@ -1,71 +1,127 @@
-import { FiMapPin, FiBook, FiCode } from 'react-icons/fi';
 import { personalInfo } from '../data/data';
 import './About.css';
 
 /**
- * About — Bio on the left, circular profile avatar on the right
+ * About — Asymmetrical 3-Column Profile + Capability Structure.
+ * Top: Metadata columns, drop-cap bio, and rectangular 4:5 portrait.
+ * Bottom: Precise capability indexing (Frontend, Backend, Systems).
  */
 export default function About() {
+  const bioText = personalInfo.bio || '';
+  const firstLetter = bioText.charAt(0);
+  const restOfBio = bioText.slice(1);
+
   return (
     <section className="section" id="about">
       <div className="container">
+        {/* Header */}
         <div className="section-header animate-on-scroll">
-          <h2 className="section-title">About Me</h2>
+          <div className="section-title-wrap">
+            <span className="section-number mono">01</span>
+            <h2 className="section-title">Identity & Architecture</h2>
+          </div>
           <p className="section-subtitle">
-            Get to know me — my background, interests, and what drives me
+            An overview of my engineering philosophy, core focus, and technical capabilities.
           </p>
         </div>
 
-        <div className="about-content">
-          {/* Left — Bio & Info */}
-          <div className="about-text animate-on-scroll slide-left">
-            <h3>
-              I'm <span>{personalInfo.name}</span>
-            </h3>
-            <p className="about-tagline">{personalInfo.tagline}</p>
-            <p className="about-bio">{personalInfo.bio}</p>
-
-            {/* Stats */}
-            <div className="about-stats">
-              <div className="about-stat">
-                <div className="about-stat-number">2+</div>
-                <div className="about-stat-label">Projects</div>
-              </div>
-              <div className="about-stat">
-                <div className="about-stat-number">10+</div>
-                <div className="about-stat-label">Skills</div>
-              </div>
-              <div className="about-stat">
-                <div className="about-stat-number">2</div>
-                <div className="about-stat-label">Certifications</div>
-              </div>
-              <div className="about-stat">
-                <div className="about-stat-number">6.61</div>
-                <div className="about-stat-label">CGPA</div>
-              </div>
+        {/* Profile Row: 3-Column Layout */}
+        <div className="about-grid-editorial">
+          {/* Column 1: Monospaced Metadata */}
+          <div className="about-col-meta animate-on-scroll">
+            <div className="meta-row">
+              <span className="meta-label mono">LOC</span>
+              <span className="meta-value">Punjab, India</span>
             </div>
-
-            {/* Info Pills */}
-            <div className="about-info-row">
-              <div className="about-info-pill">
-                <FiMapPin /> India
-              </div>
-              <div className="about-info-pill">
-                <FiBook /> B.Tech CSE
-              </div>
-              <div className="about-info-pill">
-                <FiCode /> Full-Stack Dev
-              </div>
+            <div className="meta-row">
+              <span className="meta-label mono">DEGREE</span>
+              <span className="meta-value">B.Tech CS Student</span>
+            </div>
+            <div className="meta-row">
+              <span className="meta-label mono">SPECIALTY</span>
+              <span className="meta-value">Full-Stack Web</span>
+            </div>
+            <div className="meta-row">
+              <span className="meta-label mono">WORKSTATION</span>
+              <span className="meta-value mono" style={{ fontSize: '0.8rem', color: 'var(--accent-secondary)' }}>
+                NODE.JS / React / MongoDB
+              </span>
             </div>
           </div>
 
-          <div className="about-image-wrapper animate-on-scroll slide-right">
-            <div className="about-image-card">
-              <div className="about-image-inner">
-                <img src="/images/Ankit-formal.jpg" alt="Ankit Kumar Singh" className="about-avatar-img" />
+          {/* Column 2: Biography & Drop-cap Narrative */}
+          <div className="about-col-narrative animate-on-scroll stagger-1">
+            <h3 className="about-philosophy">
+              BUILDING SCALABLE WEB SYSTEMS FROM SCRATCH WITH HIGH STRUCTURAL INTEGRITY.
+            </h3>
+            <p className="about-paragraph-bio">
+              <span className="drop-cap">{firstLetter}</span>
+              {restOfBio}
+            </p>
+          </div>
+
+          {/* Column 3: Rectangular Black-and-white 4:5 Portrait */}
+          <div className="about-col-portrait animate-on-scroll stagger-2">
+            <div className="portrait-container">
+              <img
+                src="/images/Ankit-formal.jpg"
+                alt="Ankit Kumar Singh formal portrait"
+                className="portrait-img"
+              />
+            </div>
+            <span className="portrait-caption mono">TECHNICAL WORKSTATION RECORD - 2026</span>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="divider-line"></div>
+
+        {/* Capabilities Ledger (Section 9 structure) */}
+        <div className="about-capabilities-ledger">
+          <div className="capability-intro animate-on-scroll">
+            <span className="info-meta mono">SYSTEM DIRECTIVES</span>
+            <h3 className="capability-heading">CAPABILITY INDEX</h3>
+            <p className="capability-desc">
+              Structured architectural domains I optimize for user experience and performance.
+            </p>
+          </div>
+
+          <div className="capability-list-matrix">
+            {/* Capability 01 */}
+            <div className="capability-row-item animate-on-scroll stagger-1">
+              <div className="cap-index mono">01</div>
+              <div className="cap-body">
+                <h4 className="cap-title">FRONTEND ENGINEERING</h4>
+                <p className="cap-text">
+                  Responsive layout composition, semantic DOM trees, accessibility focus,
+                  and interface interactions using React.js and vanilla CSS stylesheets.
+                </p>
               </div>
             </div>
-            <div className="about-image-decoration"></div>
+
+            {/* Capability 02 */}
+            <div className="capability-row-item animate-on-scroll stagger-2">
+              <div className="cap-index mono">02</div>
+              <div className="cap-body">
+                <h4 className="cap-title">BACKEND / SYSTEMS</h4>
+                <p className="cap-text">
+                  Database management with MongoDB and MySQL, normalizing datasets, constructing performant
+                  REST APIs using Express, and integrating token authentication protocols.
+                </p>
+              </div>
+            </div>
+
+            {/* Capability 03 */}
+            <div className="capability-row-item animate-on-scroll stagger-3">
+              <div className="cap-index mono">03</div>
+              <div className="cap-body">
+                <h4 className="cap-title">UI / UX ARCHITECTURE</h4>
+                <p className="cap-text">
+                  Translating visual plans into structured code systems, balancing weight and hierarchy,
+                  and avoiding superficial skinning in favor of solid DOM relations.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

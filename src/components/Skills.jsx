@@ -1,86 +1,62 @@
-import {
-  FiCode, FiGlobe, FiLayers, FiDatabase, FiHeart,
-} from 'react-icons/fi';
-import {
-  FaJava, FaJs, FaPhp, FaPython, FaHtml5, FaCss3Alt,
-  FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaLinux,
-} from 'react-icons/fa';
-import {
-  SiCplusplus, SiMysql, SiMongodb,
-} from 'react-icons/si';
 import { skills } from '../data/data';
 import './Skills.css';
 
 /**
- * Skills — Card-based skill categories with icons (no progress bars)
+ * Skills — Architectural Capability Matrix.
+ * Left: Technical stack statement.
+ * Right: Flat horizontal categories separated by small crimson indices and middots.
  */
-
-// Map category names to header icons
-const categoryIcons = {
-  Languages: <FiCode />,
-  'Web Technologies': <FiGlobe />,
-  'Frameworks & Libraries': <FiLayers />,
-  'Tools & Databases': <FiDatabase />,
-  'Soft Skills': <FiHeart />,
-};
-
-// Map individual skill names to their brand icons
-const skillIcons = {
-  Java: <FaJava />,
-  JavaScript: <FaJs />,
-  PHP: <FaPhp />,
-  Python: <FaPython />,
-  'C++': <SiCplusplus />,
-  HTML: <FaHtml5 />,
-  CSS: <FaCss3Alt />,
-  'React.js': <FaReact />,
-  'Node.js': <FaNodeJs />,
-  MySQL: <SiMysql />,
-  MongoDB: <SiMongodb />,
-  Git: <FaGitAlt />,
-  Linux: <FaLinux />,
-  'Problem-Solving': <FiCode />,
-  'Time Management': <FiHeart />,
-  'Team Collaboration': <FiHeart />,
-  Adaptability: <FiHeart />,
-};
-
 export default function Skills() {
   return (
     <section className="section" id="skills">
       <div className="container">
+        {/* Header */}
         <div className="section-header animate-on-scroll">
-          <h2 className="section-title">Skills & Expertise</h2>
+          <div className="section-title-wrap">
+            <span className="section-number mono">02</span>
+            <h2 className="section-title">Technical Matrix</h2>
+          </div>
           <p className="section-subtitle">
-            Technologies and tools I use to bring ideas to life
+            Index of languages, web stacks, frameworks, and system tools.
           </p>
         </div>
 
-        <div className="skills-grid">
-          {skills.map((group, i) => (
-            <div
-              key={group.category}
-              className={`skill-card animate-on-scroll stagger-${(i % 5) + 1}`}
-            >
-              <div className="skill-card-header">
-                <div className="skill-card-icon">
-                  {categoryIcons[group.category] || <FiCode />}
-                </div>
-                <h3 className="skill-card-title">{group.category}</h3>
-              </div>
+        {/* 2-Column Split */}
+        <div className="skills-matrix-layout">
+          {/* Left: Systems Philosophy */}
+          <div className="skills-systems-narrative animate-on-scroll">
+            <div className="divider-tick"></div>
+            <h3 className="matrix-systems-heading">
+              SYSTEM INFRASTRUCTURE & REPLICABLE LOGIC
+            </h3>
+            <p className="matrix-systems-text">
+              I focus on backend configurations, modular UI structures, database normalization,
+              and efficient data-fetching flows. My toolkit supports deterministic builds and clean codebases.
+            </p>
+          </div>
 
-              <div className="skill-tags">
-                {group.items.map((skill) => (
-                  <span className="skill-tag" key={skill.name}>
-                    {skillIcons[skill.name] && (
-                      <span className="skill-tag-icon">{skillIcons[skill.name]}</span>
-                    )}
-                    {skill.name}
-                  </span>
-                ))}
+          {/* Right: Architectural Index Rows */}
+          <div className="skills-ledger animate-on-scroll stagger-1">
+            {skills.map((group, index) => (
+              <div className="skills-ledger-row" key={group.category}>
+                {/* Monospaced Crimson Index & Category name */}
+                <div className="skills-ledger-cat-wrap">
+                  <span className="skills-ledger-index mono">0{index + 1}</span>
+                  <span className="skills-ledger-cat mono">{group.category}</span>
+                </div>
+
+                {/* Inline Skills List */}
+                <div className="skills-ledger-items mono">
+                  {group.items.map((skill, idx) => (
+                    <span key={skill.name} className="skill-item-name">
+                      {skill.name}
+                      {idx < group.items.length - 1 && <span className="item-middot">•</span>}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
