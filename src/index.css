@@ -139,7 +139,7 @@ button {
 
 .section {
   padding: 120px 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: none;
   position: relative;
 }
 
@@ -265,32 +265,43 @@ button {
 }
 
 /* ============ Scroll Animation States ============ */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 1100;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 8px var(--accent);
+}
+
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px) scale(0.96);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-on-scroll.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .animate-on-scroll.slide-left {
-  transform: translateX(-40px);
+  transform: translateX(-40px) scale(0.98);
 }
 
 .animate-on-scroll.slide-left.visible {
-  transform: translateX(0);
+  transform: translateX(0) scale(1);
 }
 
 .animate-on-scroll.slide-right {
-  transform: translateX(40px);
+  transform: translateX(40px) scale(0.98);
 }
 
 .animate-on-scroll.slide-right.visible {
-  transform: translateX(0);
+  transform: translateX(0) scale(1);
 }
 
 .stagger-1 { transition-delay: 0.08s; }

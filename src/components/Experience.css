@@ -24,6 +24,7 @@
   border: 1px solid var(--border);
   border-radius: 8px;
   align-items: start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -104,9 +105,20 @@
 .certs-ledger-row {
   display: grid;
   grid-template-columns: 45% 25% 15% 15%;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  background: rgba(24, 24, 27, 0.2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.certs-ledger-row:hover {
+  background: rgba(24, 24, 27, 0.45);
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .cert-col-title {
@@ -173,14 +185,14 @@
   .training-ledger-row {
     grid-template-columns: 1fr;
     gap: 12px;
-    padding: 20px 0;
+    padding: 20px;
   }
 
   .certs-ledger-row {
     grid-template-columns: 1fr;
     gap: 12px;
     align-items: start;
-    padding: 20px 0;
+    padding: 20px;
   }
 
   .text-right {

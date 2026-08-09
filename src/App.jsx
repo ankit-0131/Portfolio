@@ -20,12 +20,26 @@ export default function App() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('portfolio-theme') || 'dark';
   });
+  
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   // Apply theme to <html> element and persist
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('portfolio-theme', theme);
   }, [theme]);
+
+  // Track scroll progress
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress((window.scrollY / totalHeight) * 100);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
@@ -36,6 +50,7 @@ export default function App() {
 
   return (
     <>
+      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} aria-hidden="true"></div>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />

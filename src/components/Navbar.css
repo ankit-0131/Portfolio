@@ -24,6 +24,11 @@
   grid-template-columns: 12% 88%;
   align-items: center;
   height: 80px;
+  transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar.scrolled .navbar-grid {
+  height: 60px;
 }
 
 @media (max-width: 768px) {
