@@ -11,12 +11,15 @@
   width: 40px;
   z-index: 999; /* Float above sections but below overlays like loader/modals */
   pointer-events: none; /* Do not block clicks on elements behind */
+  --spider-size: 34px;
 }
 
-/* Hide on mobile and small tablets to keep layout clean and readable */
+/* Responsive adjustments for mobile and tablets */
 @media (max-width: 850px) {
   .scroll-spider-wrapper {
-    display: none;
+    right: 15px; /* Bring closer to the edge on mobile */
+    width: 25px;
+    --spider-size: 22px;
   }
 }
 
@@ -39,9 +42,9 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%) rotate(180deg); /* Rotate 180 degrees to make it hang upside down */
-  width: 34px;
-  height: 34px;
-  margin-top: -6px; /* Anchor perfectly to the spinneret (rear end) at the top of the spider */
+  width: var(--spider-size);
+  height: var(--spider-size);
+  margin-top: calc(var(--spider-size) * -0.18); /* Anchor perfectly to the spinneret regardless of size */
   transform-origin: center center;
 }
 

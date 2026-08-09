@@ -26,8 +26,8 @@ export default function ScrollSpider({ scrollProgress }) {
     };
   }, []);
 
-  // Position moves from 0% (top of page) to 100% (bottom of page), subtracting the spider's height (34px) proportionally so it doesn't overflow the bottom.
-  const spiderTop = `calc(${scrollProgress}% - ${scrollProgress * 0.34}px)`;
+  // Position moves from 0% (top of page) to 100% (bottom of page), subtracting the spider's height (var(--spider-size)) proportionally so it doesn't overflow the bottom.
+  const spiderTop = `calc(${scrollProgress}% - var(--spider-size) * ${scrollProgress / 100})`;
 
   return (
     <div className="scroll-spider-wrapper" aria-hidden="true">
